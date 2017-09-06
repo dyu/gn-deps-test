@@ -1,0 +1,40 @@
+
+executable("snappy_test") {
+  testonly = true
+  sources = [ "src/snappy_test.cpp" ]
+  deps = [
+    "//gn-deps/googletest:gtest_main",
+    "//gn-deps/snappy:snappy",
+  ]
+}
+
+executable("uv_sample") {
+  sources = [ "src/uv_sample.c" ]
+  deps = [
+    "//gn-deps/libuv:libuv",
+  ]
+}
+
+executable("uv_throughput") {
+  sources = [ "src/uv_throughput.cpp" ]
+  deps = [
+    "//gn-deps/libuv:libuv",
+  ]
+}
+
+executable("leveldb_test") {
+  testonly = true
+  sources = [ "src/leveldb_test.cpp" ]
+  deps = [
+    "//gn-deps/googletest:gtest_main",
+    "//gn-deps/leveldb:leveldb",
+  ]
+}
+
+executable("uws_echo") {
+  sources = [ "src/uws_echo.cpp" ]
+  deps = [
+    "//gn-deps/uWebSockets:uws",
+  ]
+}
+
