@@ -31,6 +31,16 @@ executable("leveldb_test") {
   ]
 }
 
+executable("leveldb_log_test") {
+  testonly = true
+  sources = [ "src/leveldb_log_test.cpp" ]
+  include_dirs = [ "//gn-deps/leveldb" ]
+  deps = [
+    "//gn-deps/googletest:gtest_main",
+    "//gn-deps/leveldb:leveldb",
+  ]
+}
+
 executable("uws_echo") {
   sources = [ "src/uws_echo.cpp" ]
   deps = [
