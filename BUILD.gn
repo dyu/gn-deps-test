@@ -27,9 +27,6 @@ executable("leveldb_log_test") {
   ]
 }
 
-#TODO fix mac build
-if (!is_mac) {
-
 executable("uv_sample") {
   sources = [ "src/uv_sample.c" ]
   deps = [
@@ -43,6 +40,9 @@ executable("uv_throughput") {
     "//gn-deps/libuv:libuv",
   ]
 }
+
+#TODO fix mac build
+if (!is_mac) {
 
 executable("uws_echo") {
   sources = [ "src/uws_echo.cpp" ]

@@ -7,6 +7,9 @@
 #include <cstring>
 #ifdef WIN32
 #define htobe64 ntohll
+#elif defined(__APPLE__) && defined(__MACH__)
+#include <machine/endian.h>
+#define htobe64(x) OSSwapHostToBigInt64(x)
 #else
 #include <endian.h>
 #endif
