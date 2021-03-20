@@ -2,7 +2,7 @@
 
 ### Fetch deps
 ```sh
-git clone --depth 1 --single-branch -b build https://github.com/dyu/gn-build.git
+git clone --depth 1 --single-branch -b build https://github.com/dyu/gn-build.git build
 git clone --depth 1 --single-branch -b build https://github.com/dyu/gn-deps.git
 
 # if windows, execute this via msys2 bash
