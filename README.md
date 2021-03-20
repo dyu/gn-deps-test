@@ -2,17 +2,21 @@
 
 ### Fetch deps
 ```sh
-git clone --depth 1 --single-branch -b ns https://github.com/dyu/gn-build
-git clone --depth 1 --single-branch -b master https://github.com/dyu/gn-deps
+git clone --depth 1 --single-branch -b build https://github.com/dyu/gn-build.git
+git clone --depth 1 --single-branch -b build https://github.com/dyu/gn-deps.git
 
 # if windows, execute this via msys2 bash
 ./gn-deps/fetch.sh
 ```
 
 ### Configure gn
-Linux   
+Linux
 ```sh
 gn gen gn-out --args='gcc_cc="gcc" gcc_cxx="g++" symbol_level=0 is_debug=false is_clang=false is_official_build=true'
+```
+Mac
+```sh
+gn gen gn-out --args='symbol_level=0 is_debug=false is_clang=true is_official_build=true'
 ```
 Windows
 ```sh
