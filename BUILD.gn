@@ -41,15 +41,9 @@ executable("uv_throughput") {
   ]
 }
 
-#TODO fix mac build
-if (!is_mac) {
-
 executable("uws_echo") {
   sources = [ "src/uws_echo.cpp" ]
   deps = [
     "//gn-deps/uWebSockets:uws",
   ]
 }
-
-}
-
