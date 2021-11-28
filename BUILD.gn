@@ -48,8 +48,8 @@ executable("uws_echo") {
   ]
 }
 
-executable("zlib_gzjoin") {
-  sources = [ "gn-deps/zlib/examples/gzjoin.c" ]
+executable("zlib_zran") {
+  sources = [ "gn-deps/zlib/examples/zran.c" ]
   deps = [
     "//gn-deps/zlib:zlib",
   ]
