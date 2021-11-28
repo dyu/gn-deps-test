@@ -47,3 +47,10 @@ executable("uws_echo") {
     "//gn-deps/uWebSockets:uws",
   ]
 }
+
+executable("zlib_gzjoin") {
+  sources = [ "gn-deps/zlib/examples/gzjoin.c" ]
+  deps = [
+    "//gn-deps/zlib:zlib",
+  ]
+}
