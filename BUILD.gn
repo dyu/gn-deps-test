@@ -48,9 +48,21 @@ executable("uws_echo") {
   ]
 }
 
+
+executable("zlib_example") {
+  sources = [ "gn-deps/zlib/test/example.c" ]
+  deps = [
+    "//gn-deps/zlib:zlib",
+  ]
+}
+
+if (!is_win) {
+# requires fseeko
 executable("zlib_zran") {
   sources = [ "gn-deps/zlib/examples/zran.c" ]
   deps = [
     "//gn-deps/zlib:zlib",
   ]
+}
+
 }
