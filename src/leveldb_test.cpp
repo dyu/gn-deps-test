@@ -1,7 +1,12 @@
 #include <gtest/gtest.h>
 #include <leveldb/db.h>
+#include <leveldb/env.h>
 
 TEST(leveldb, open) {
+  auto env = leveldb::Env::Default();
+  if (!env->FileExists("target")) {
+      ASSERT_TRUE(env->CreateDir("target").ok());
+  }
   leveldb::DB* db;
   leveldb::Options options;
   options.create_if_missing = true;
