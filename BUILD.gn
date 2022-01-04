@@ -1,4 +1,11 @@
 
+executable("crc32c_test") {
+  sources = [ "gn-deps/crc32c/src/crc32c_capi_unittest.c" ]
+  deps = [
+    "//gn-deps/crc32c:crc32c",
+  ]
+}
+
 executable("snappy_test") {
   testonly = true
   sources = [ "src/snappy_test.cpp" ]
