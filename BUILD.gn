@@ -65,4 +65,18 @@ executable("zlib_zran") {
   ]
 }
 
+executable("zstd_csimple") {
+  sources = [ "gn-deps/zstd/examples/simple_compression.c" ]
+  deps = [
+    "//gn-deps/zstd:zstd",
+  ]
+}
+
+executable("zstd_dsimple") {
+  sources = [ "gn-deps/zstd/examples/simple_decompression.c" ]
+  deps = [
+    "//gn-deps/zstd:zstd",
+  ]
+}
+
 }
