@@ -85,6 +85,15 @@ executable("zlib_example") {
 
 if (!is_win) {
 
+executable("hyperleveldb_test") {
+  testonly = true
+  sources = [ "src/hyperleveldb_test.cpp" ]
+  deps = [
+    "//gn-deps/googletest:gtest_main",
+    "//gn-deps/HyperLevelDB:hyperleveldb",
+  ]
+}
+
 # requires fseeko
 executable("zlib_zran") {
   sources = [ "gn-deps/zlib/examples/zran.c" ]
