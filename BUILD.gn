@@ -3,6 +3,10 @@ executable("endian") {
   sources = [ "src/endian.cpp" ]
 }
 
+executable("endian_enum") {
+  sources = [ "src/endian_enum.cpp" ]
+}
+
 executable("crc32c_test") {
   sources = [ "gn-deps/crc32c/src/crc32c_capi_unittest.c" ]
   deps = [
