@@ -1,16 +1,14 @@
-// endian detection via the compilers: Clang, Gcc and Msvc.
+// endian detection via the compilers: clang and gcc.
+// assume little endian on windows
+// https://github.com/abseil/abseil-cpp/blob/c59e7e59f5d29619ddc07fcb59be3dcba9585814/absl/base/config.h#L511-L521
 
 // clang defines __LITTLE_ENDIAN__ on little endian systems.
-// gcc 4.x+ and msvc 2015+ (c++14) both define __BYTE_ORDER__
-#if !defined(__LITTLE_ENDIAN__) && !defined(__clang__) && defined(__BYTE_ORDER__) && __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
-#define __LITTLE_ENDIAN__ 1
+// gcc 4.6+ and clang 3.2+ both define __BYTE_ORDER__
+#if defined(_WIN32) || (defined(__BYTE_ORDER__) && __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__)
+#define IS_LITTLE_ENDIAN true
 #endif
 
-#if defined(__LITTLE_ENDIAN__)
-static const bool kLittleEndian = true;
-#else
-static const bool kLittleEndian = false;
-#endif
+static const bool kLittleEndian = IS_LITTLE_ENDIAN;
 
 #include <stdio.h>
 
