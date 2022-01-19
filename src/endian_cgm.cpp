@@ -6,6 +6,8 @@
 // gcc 4.6+ and clang 3.2+ both define __BYTE_ORDER__
 #if defined(_WIN32) || (defined(__BYTE_ORDER__) && __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__)
 #define IS_LITTLE_ENDIAN true
+#else
+#define IS_LITTLE_ENDIAN false
 #endif
 
 static const bool kLittleEndian = IS_LITTLE_ENDIAN;
