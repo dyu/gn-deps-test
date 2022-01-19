@@ -106,7 +106,7 @@ executable("hyperleveldb_test") {
   sources = [ "src/hyperleveldb_test.cpp" ]
   deps = [
     "//gn-deps/googletest:gtest_main",
-    "//gn-deps/HyperLevelDB:hyperleveldb",
+    "//gn-deps/hyperleveldb:hyperleveldb",
   ]
 }
 
