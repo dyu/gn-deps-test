@@ -110,6 +110,19 @@ executable("hyperleveldb_test") {
   ]
 }
 
+executable("hyperleveldb_tests") {
+  configs += [ "//gn-deps/hyperleveldb:hyperleveldb_local_config" ]
+  sources = [
+    "gn-deps/hyperleveldb/util/testutil.cc",
+    "gn-deps/hyperleveldb/util/testharness.cc",
+    "gn-deps/hyperleveldb/db/db_test.cc",
+  ]
+  deps = [
+    "//gn-deps/hyperleveldb:hyperleveldb",
+    "//gn-deps/snappy:snappy",
+  ]
+}
+
 # requires fseeko
 executable("zlib_zran") {
   sources = [ "gn-deps/zlib/examples/zran.c" ]
