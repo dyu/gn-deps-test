@@ -3,6 +3,10 @@ executable("endian") {
   sources = [ "src/endian.cpp" ]
 }
 
+executable("endian_simple") {
+  sources = [ "src/endian_simple.cpp" ]
+}
+
 executable("endian_cgm") {
   sources = [ "src/endian_cgm.cpp" ]
 }
