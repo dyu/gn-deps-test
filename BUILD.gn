@@ -186,7 +186,7 @@ executable("hyperleveldb_bp_tests") {
 }
 
 executable("pshdb_tests") {
-  configs += [ "//gn-deps/hyperleveldb:hyperleveldb_local_config" ]
+  configs += [ "//gn-deps/pshdb:hyperleveldb_local_config" ]
   sources = [
     "gn-deps/pshdb/util/testutil.cc",
     "gn-deps/pshdb/util/testharness.cc",
