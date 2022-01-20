@@ -47,6 +47,23 @@ executable("leveldb_test") {
   ]
 }
 
+executable("leveldb_tests") {
+  testonly = true
+  defines = [ "TEST_SKIP_BENCHMARK" ]
+  configs += [ "//gn-deps/leveldb:leveldb_local_config" ]
+  sources = [
+    "gn-deps/leveldb/util/testutil.cc",
+    "gn-deps/leveldb/db/db_test.cc",
+  ]
+  deps = [
+    "//gn-deps/googletest:gtest",
+    "//gn-deps/googletest:gmock",
+    "//gn-deps/leveldb:leveldb",
+    "//gn-deps/snappy:snappy",
+    "//gn-deps/crc32c:crc32c",
+  ]
+}
+
 executable("leveldb_bp_tests") {
   testonly = true
   configs += [ "//gn-deps/leveldb-bp:leveldb_local_config" ]
