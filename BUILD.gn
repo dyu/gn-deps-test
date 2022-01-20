@@ -47,6 +47,22 @@ executable("leveldb_test") {
   ]
 }
 
+executable("leveldb_bp_tests") {
+  testonly = true
+  configs += [ "//gn-deps/leveldb-bp:leveldb_local_config" ]
+  sources = [
+    "gn-deps/leveldb-bp/util/testutil.cc",
+    "gn-deps/leveldb-bp/db/db_test.cc",
+  ]
+  deps = [
+    "//gn-deps/googletest:gtest_main",
+    "//gn-deps/googletest:gmock",
+    "//gn-deps/leveldb-bp:leveldb",
+    "//gn-deps/snappy:snappy",
+    "//gn-deps/crc32c:crc32c",
+  ]
+}
+
 executable("leveldb_log_test") {
   testonly = true
   sources = [ "src/leveldb_log_test.cpp" ]
@@ -119,6 +135,19 @@ executable("hyperleveldb_tests") {
   ]
   deps = [
     "//gn-deps/hyperleveldb:hyperleveldb",
+    "//gn-deps/snappy:snappy",
+  ]
+}
+
+executable("hyperleveldb_bp_tests") {
+  configs += [ "//gn-deps/hyperleveldb:hyperleveldb_local_config" ]
+  sources = [
+    "gn-deps/hyperleveldb-bp/util/testutil.cc",
+    "gn-deps/hyperleveldb-bp/util/testharness.cc",
+    "gn-deps/hyperleveldb-bp/db/db_test.cc",
+  ]
+  deps = [
+    "//gn-deps/hyperleveldb-bp:hyperleveldb",
     "//gn-deps/snappy:snappy",
   ]
 }
