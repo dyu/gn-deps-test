@@ -6,7 +6,7 @@ git clone --depth 1 --single-branch -b build https://github.com/dyu/gn-build.git
 git clone --depth 1 --single-branch -b build https://github.com/dyu/gn-deps.git
 
 # if windows, execute this via msys2 bash
-./gn-deps/fetch.sh
+./gn-deps/fetch.sh all
 ```
 
 ### Configure gn
