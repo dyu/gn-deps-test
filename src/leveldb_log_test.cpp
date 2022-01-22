@@ -7,9 +7,10 @@ TEST(log, write_read)
 {
     auto env = leveldb::Env::Default();
     leveldb::Status s;
-    if (env->FileExists("target/foo.log"))
+    std::string logFile("target/write_read.log");
+    if (env->FileExists(logFile))
     {
-        ASSERT_TRUE(env->DeleteFile("target/foo.log").ok());
+        ASSERT_TRUE(env->DeleteFile(logFile).ok());
     }
     else if (!env->FileExists("target"))
     {
@@ -17,7 +18,7 @@ TEST(log, write_read)
     }
     
     leveldb::WritableFile* wf;
-    s = env->NewWritableFile("target/foo.log", &wf);
+    s = env->NewWritableFile(logFile, &wf);
     ASSERT_TRUE(s.ok());
     
     leveldb::log::Writer writer(wf);
@@ -25,7 +26,7 @@ TEST(log, write_read)
     ASSERT_TRUE(s.ok());
     
     leveldb::SequentialFile* sf;
-    s = env->NewSequentialFile("target/foo.log", &sf);
+    s = env->NewSequentialFile(logFile, &sf);
     ASSERT_TRUE(s.ok());
     
     leveldb::log::Reader reader(sf, nullptr, false, 0);
@@ -40,10 +41,11 @@ TEST(log, write_read)
 TEST(log, write_read2)
 {
     auto env = leveldb::Env::Default();
+    std::string logFile("target/write_read2.log");
     leveldb::Status s;
-    if (env->FileExists("target/foo.log"))
+    if (env->FileExists(logFile))
     {
-        ASSERT_TRUE(env->DeleteFile("target/foo.log").ok());
+        ASSERT_TRUE(env->DeleteFile(logFile).ok());
     }
     else if (!env->FileExists("target"))
     {
@@ -51,7 +53,7 @@ TEST(log, write_read2)
     }
     
     leveldb::WritableFile* wf;
-    s = env->NewWritableFile("target/foo.log", &wf);
+    s = env->NewWritableFile(logFile, &wf);
     ASSERT_TRUE(s.ok());
     
     leveldb::log::Writer writer(wf);
@@ -61,7 +63,7 @@ TEST(log, write_read2)
     ASSERT_TRUE(s.ok());
     
     leveldb::SequentialFile* sf;
-    s = env->NewSequentialFile("target/foo.log", &sf);
+    s = env->NewSequentialFile(logFile, &sf);
     ASSERT_TRUE(s.ok());
     
     leveldb::log::Reader reader(sf, nullptr, false, 0);
@@ -79,10 +81,11 @@ TEST(log, write_read2)
 /*TEST(log, write_read_offset)
 {
     auto env = leveldb::Env::Default();
+    std::string logFile("target/write_read_offset.log");
     leveldb::Status s;
-    if (env->FileExists("target/foo.log"))
+    if (env->FileExists(logFile))
     {
-        ASSERT_TRUE(env->DeleteFile("target/foo.log").ok());
+        ASSERT_TRUE(env->DeleteFile(logFile).ok());
     }
     else if (!env->FileExists("target"))
     {
@@ -90,7 +93,7 @@ TEST(log, write_read2)
     }
     
     leveldb::WritableFile* wf;
-    s = env->NewWritableFile("target/foo.log", &wf);
+    s = env->NewWritableFile(logFile, &wf);
     ASSERT_TRUE(s.ok());
     
     leveldb::log::Writer writer(wf);
@@ -100,7 +103,7 @@ TEST(log, write_read2)
     ASSERT_TRUE(s.ok());
     
     leveldb::SequentialFile* sf;
-    s = env->NewSequentialFile("target/foo.log", &sf);
+    s = env->NewSequentialFile(logFile, &sf);
     ASSERT_TRUE(s.ok());
     
     leveldb::log::Reader reader(sf, nullptr, false, 1);
@@ -115,10 +118,11 @@ TEST(log, write_read2)
 TEST(log, write_read_offset2)
 {
     auto env = leveldb::Env::Default();
+    std::string logFile("target/write_read_offset2.log");
     leveldb::Status s;
-    if (env->FileExists("target/foo.log"))
+    if (env->FileExists(logFile))
     {
-        ASSERT_TRUE(env->DeleteFile("target/foo.log").ok());
+        ASSERT_TRUE(env->DeleteFile(logFile).ok());
     }
     else if (!env->FileExists("target"))
     {
@@ -126,7 +130,7 @@ TEST(log, write_read_offset2)
     }
     
     leveldb::WritableFile* wf;
-    s = env->NewWritableFile("target/foo.log", &wf);
+    s = env->NewWritableFile(logFile, &wf);
     ASSERT_TRUE(s.ok());
     
     leveldb::log::Writer writer(wf);
@@ -138,7 +142,7 @@ TEST(log, write_read_offset2)
     ASSERT_TRUE(s.ok());
     
     leveldb::SequentialFile* sf;
-    s = env->NewSequentialFile("target/foo.log", &sf);
+    s = env->NewSequentialFile(logFile, &sf);
     ASSERT_TRUE(s.ok());
     
     leveldb::log::Reader reader(sf, nullptr, false, 2);
