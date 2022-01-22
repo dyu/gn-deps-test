@@ -47,7 +47,7 @@ executable("leveldb_test") {
   ]
 }
 
-executable("leveldb_tests") {
+executable("leveldb_db_test") {
   testonly = true
   defines = [ "TEST_SKIP_BENCHMARK" ]
   configs += [ "//gn-deps/leveldb:leveldb_local_config" ]
@@ -64,7 +64,7 @@ executable("leveldb_tests") {
   ]
 }
 
-executable("leveldb_bp_tests") {
+executable("leveldb_bp_db_test") {
   testonly = true
   configs += [ "//gn-deps/leveldb-bp:leveldb_local_config" ]
   sources = [
@@ -80,7 +80,7 @@ executable("leveldb_bp_tests") {
   ]
 }
 
-executable("psldb_tests") {
+executable("psldb_db_test") {
   testonly = true
   configs += [ "//gn-deps/psldb:leveldb_local_config" ]
   sources = [
@@ -159,7 +159,7 @@ executable("hyperleveldb_test") {
   ]
 }
 
-executable("hyperleveldb_tests") {
+executable("hyperleveldb_db_test") {
   configs += [ "//gn-deps/hyperleveldb:hyperleveldb_local_config" ]
   sources = [
     "gn-deps/hyperleveldb/util/testutil.cc",
@@ -172,7 +172,7 @@ executable("hyperleveldb_tests") {
   ]
 }
 
-executable("hyperleveldb_bp_tests") {
+executable("hyperleveldb_bp_db_test") {
   configs += [ "//gn-deps/hyperleveldb:hyperleveldb_local_config" ]
   sources = [
     "gn-deps/hyperleveldb-bp/util/testutil.cc",
@@ -185,7 +185,7 @@ executable("hyperleveldb_bp_tests") {
   ]
 }
 
-executable("pshdb_tests") {
+executable("pshdb_db_test") {
   configs += [ "//gn-deps/pshdb:hyperleveldb_local_config" ]
   sources = [
     "gn-deps/pshdb/util/testutil.cc",
