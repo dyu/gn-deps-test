@@ -18,7 +18,7 @@ TEST(log, write_read)
     }
     
     leveldb::WritableFile* wf;
-    s = env->NewWritableFile(logFile, &wf);
+    s = env->NewSharedAppendableFile(logFile, &wf);
     ASSERT_TRUE(s.ok());
     
     leveldb::log::Writer writer(wf);
@@ -26,7 +26,8 @@ TEST(log, write_read)
     ASSERT_TRUE(s.ok());
     
     leveldb::SequentialFile* sf;
-    s = env->NewSequentialFile(logFile, &sf);
+    s = env->NewSharedSequentialFile(logFile, &sf);
+    if (!s.ok()) std::cout << s.ToString() << std::endl;
     ASSERT_TRUE(s.ok());
     
     leveldb::log::Reader reader(sf, nullptr, false, 0);
@@ -53,7 +54,7 @@ TEST(log, write_read2)
     }
     
     leveldb::WritableFile* wf;
-    s = env->NewWritableFile(logFile, &wf);
+    s = env->NewSharedAppendableFile(logFile, &wf);
     ASSERT_TRUE(s.ok());
     
     leveldb::log::Writer writer(wf);
@@ -63,7 +64,8 @@ TEST(log, write_read2)
     ASSERT_TRUE(s.ok());
     
     leveldb::SequentialFile* sf;
-    s = env->NewSequentialFile(logFile, &sf);
+    s = env->NewSharedSequentialFile(logFile, &sf);
+    if (!s.ok()) std::cout << s.ToString() << std::endl;
     ASSERT_TRUE(s.ok());
     
     leveldb::log::Reader reader(sf, nullptr, false, 0);
@@ -93,7 +95,7 @@ TEST(log, write_read2)
     }
     
     leveldb::WritableFile* wf;
-    s = env->NewWritableFile(logFile, &wf);
+    s = env->NewSharedAppendableFile(logFile, &wf);
     ASSERT_TRUE(s.ok());
     
     leveldb::log::Writer writer(wf);
@@ -103,7 +105,7 @@ TEST(log, write_read2)
     ASSERT_TRUE(s.ok());
     
     leveldb::SequentialFile* sf;
-    s = env->NewSequentialFile(logFile, &sf);
+    s = env->NewSharedSequentialFile(logFile, &sf);
     ASSERT_TRUE(s.ok());
     
     leveldb::log::Reader reader(sf, nullptr, false, 1);
@@ -130,7 +132,7 @@ TEST(log, write_read_offset2)
     }
     
     leveldb::WritableFile* wf;
-    s = env->NewWritableFile(logFile, &wf);
+    s = env->NewSharedAppendableFile(logFile, &wf);
     ASSERT_TRUE(s.ok());
     
     leveldb::log::Writer writer(wf);
@@ -142,7 +144,7 @@ TEST(log, write_read_offset2)
     ASSERT_TRUE(s.ok());
     
     leveldb::SequentialFile* sf;
-    s = env->NewSequentialFile(logFile, &sf);
+    s = env->NewSharedSequentialFile(logFile, &sf);
     ASSERT_TRUE(s.ok());
     
     leveldb::log::Reader reader(sf, nullptr, false, 2);
