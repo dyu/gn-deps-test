@@ -26,6 +26,116 @@ executable("openssl_asn1_test") {
   ]
 }
 
+executable("openssl_asn1parse_test") {
+  sources = [
+    "gn-deps/openssl/fuzz/asn1parse.c",
+    "gn-deps/openssl/fuzz/test-corpus.c",
+  ]
+  configs += [ "//gn-deps/openssl:openssl_local_config" ]
+  deps = [
+    "//gn-deps/openssl:openssl",
+  ]
+}
+
+executable("openssl_bignum_test") {
+  sources = [
+    "gn-deps/openssl/fuzz/bignum.c",
+    "gn-deps/openssl/fuzz/test-corpus.c",
+  ]
+  configs += [ "//gn-deps/openssl:openssl_local_config" ]
+  deps = [
+    "//gn-deps/openssl:openssl",
+  ]
+}
+
+executable("openssl_bndiv_test") {
+  sources = [
+    "gn-deps/openssl/fuzz/bndiv.c",
+    "gn-deps/openssl/fuzz/test-corpus.c",
+  ]
+  configs += [ "//gn-deps/openssl:openssl_local_config" ]
+  deps = [
+    "//gn-deps/openssl:openssl",
+  ]
+}
+
+executable("openssl_client_test") {
+  sources = [
+    "gn-deps/openssl/fuzz/client.c",
+    "gn-deps/openssl/fuzz/test-corpus.c",
+  ]
+  configs += [ "//gn-deps/openssl:openssl_local_config" ]
+  deps = [
+    "//gn-deps/openssl:openssl",
+  ]
+}
+
+executable("openssl_cms_test") {
+  sources = [
+    "gn-deps/openssl/fuzz/cms.c",
+    "gn-deps/openssl/fuzz/test-corpus.c",
+  ]
+  configs += [ "//gn-deps/openssl:openssl_local_config" ]
+  deps = [
+    "//gn-deps/openssl:openssl",
+  ]
+}
+
+executable("openssl_conf_test") {
+  sources = [
+    "gn-deps/openssl/fuzz/conf.c",
+    "gn-deps/openssl/fuzz/test-corpus.c",
+  ]
+  configs += [ "//gn-deps/openssl:openssl_local_config" ]
+  deps = [
+    "//gn-deps/openssl:openssl",
+  ]
+}
+
+executable("openssl_crl_test") {
+  sources = [
+    "gn-deps/openssl/fuzz/crl.c",
+    "gn-deps/openssl/fuzz/test-corpus.c",
+  ]
+  configs += [ "//gn-deps/openssl:openssl_local_config" ]
+  deps = [
+    "//gn-deps/openssl:openssl",
+  ]
+}
+
+executable("openssl_ct_test") {
+  sources = [
+    "gn-deps/openssl/fuzz/ct.c",
+    "gn-deps/openssl/fuzz/test-corpus.c",
+  ]
+  configs += [ "//gn-deps/openssl:openssl_local_config" ]
+  deps = [
+    "//gn-deps/openssl:openssl",
+  ]
+}
+
+executable("openssl_server_test") {
+  sources = [
+    "gn-deps/openssl/fuzz/server.c",
+    "gn-deps/openssl/fuzz/test-corpus.c",
+  ]
+  configs += [ "//gn-deps/openssl:openssl_local_config" ]
+  deps = [
+    "//gn-deps/openssl:openssl",
+  ]
+}
+
+executable("openssl_x509_test") {
+  sources = [
+    "gn-deps/openssl/fuzz/x509.c",
+    "gn-deps/openssl/fuzz/test-corpus.c",
+  ]
+  configs += [ "//gn-deps/openssl:openssl_local_config" ]
+  deps = [
+    "//gn-deps/openssl:openssl",
+  ]
+}
+
 executable("crc32c_test") {
   sources = [ "gn-deps/crc32c/src/crc32c_capi_unittest.c" ]
   deps = [
