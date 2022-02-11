@@ -136,6 +136,83 @@ executable("openssl_x509_test") {
   ]
 }
 
+#executable("openssl_abort_test") {
+#  sources = [
+#    "gn-deps/openssl/test/aborttest.c",
+#  ]
+#  configs += [ "//gn-deps/openssl:openssl_local_config" ]
+#  deps = [
+#    "//gn-deps/openssl:openssl",
+#    "//gn-deps/openssl:testutil",
+#  ]
+#}
+
+#executable("openssl_afalg_test") {
+#  sources = [
+#    "gn-deps/openssl/test/afalgtest.c",
+#  ]
+#  configs += [ "//gn-deps/openssl:openssl_local_config" ]
+#  deps = [
+#    "//gn-deps/openssl:openssl",
+#    "//gn-deps/openssl:testutil",
+#  ]
+#}
+
+executable("openssl_asn1_decode_test") {
+  sources = [
+    "gn-deps/openssl/test/asn1_decode_test.c",
+  ]
+  configs += [ "//gn-deps/openssl:openssl_local_config" ]
+  deps = [
+    "//gn-deps/openssl:openssl",
+    "//gn-deps/openssl:testutil",
+  ]
+}
+
+executable("openssl_asn1_encode_test") {
+  sources = [
+    "gn-deps/openssl/test/asn1_encode_test.c",
+  ]
+  configs += [ "//gn-deps/openssl:openssl_local_config" ]
+  deps = [
+    "//gn-deps/openssl:openssl",
+    "//gn-deps/openssl:testutil",
+  ]
+}
+
+executable("openssl_asn1_internal_test") {
+  sources = [
+    "gn-deps/openssl/test/asn1_internal_test.c",
+  ]
+  configs += [ "//gn-deps/openssl:openssl_local_config" ]
+  deps = [
+    "//gn-deps/openssl:openssl",
+    "//gn-deps/openssl:testutil",
+  ]
+}
+
+executable("openssl_asn1_string_table_test") {
+  sources = [
+    "gn-deps/openssl/test/asn1_string_table_test.c",
+  ]
+  configs += [ "//gn-deps/openssl:openssl_local_config" ]
+  deps = [
+    "//gn-deps/openssl:openssl",
+    "//gn-deps/openssl:testutil",
+  ]
+}
+
+executable("openssl_asn1_time_test") {
+  sources = [
+    "gn-deps/openssl/test/asn1_time_test.c",
+  ]
+  configs += [ "//gn-deps/openssl:openssl_local_config" ]
+  deps = [
+    "//gn-deps/openssl:openssl",
+    "//gn-deps/openssl:testutil",
+  ]
+}
+
 executable("crc32c_test") {
   sources = [ "gn-deps/crc32c/src/crc32c_capi_unittest.c" ]
   deps = [
