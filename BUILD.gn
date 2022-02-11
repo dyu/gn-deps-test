@@ -15,6 +15,17 @@ executable("endian_enum") {
   sources = [ "src/endian_enum.cpp" ]
 }
 
+executable("openssl_asn1_test") {
+  sources = [
+    "gn-deps/openssl/fuzz/asn1.c",
+    "gn-deps/openssl/fuzz/test-corpus.c",
+  ]
+  configs += [ "//gn-deps/openssl:openssl_local_config" ]
+  deps = [
+    "//gn-deps/openssl:openssl",
+  ]
+}
+
 executable("crc32c_test") {
   sources = [ "gn-deps/crc32c/src/crc32c_capi_unittest.c" ]
   deps = [
@@ -105,6 +116,8 @@ executable("psldb_log_test") {
     "//gn-deps/psldb:leveldb",
   ]
 }
+
+
 
 executable("uv_sample") {
   sources = [ "src/uv_sample.c" ]
