@@ -15,6 +15,13 @@ executable("endian_enum") {
   sources = [ "src/endian_enum.cpp" ]
 }
 
+executable("cocoyaxi_http_serv") {
+  sources = [ "gn-deps/cocoyaxi/test/so/http_serv.cc" ]
+  deps = [
+    "//gn-deps/cocoyaxi:cocoyaxi",
+  ]
+}
+
 executable("openssl_asn1_test") {
   sources = [
     "gn-deps/openssl/fuzz/asn1.c",
