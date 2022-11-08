@@ -2,12 +2,7 @@
 
 int main(int argc, char** argv)
 {
-    if (argc == 1) {
-        printf("First arg (port) is required.\n");
-        return 1;
-    }
-    
-    int port = std::stoi(argv[1]);
+    int port = argc == 1 ? 8080 : std::stoi(argv[1]);
     uWS::Hub h;
 
     h.onMessage([](uWS::WebSocket<uWS::SERVER> *ws, char *message, size_t length, uWS::OpCode opCode) {
@@ -15,7 +10,7 @@ int main(int argc, char** argv)
     });
     
     h.onHttpRequest([](uWS::HttpResponse *res, uWS::HttpRequest req, char *data, size_t length, size_t remainingBytes) {
-        res->end("hello get", 9);
+        res->end("Hello, World!", 13);
     });
 
     h.listen("127.0.0.1", port);

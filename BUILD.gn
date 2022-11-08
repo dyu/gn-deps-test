@@ -22,6 +22,13 @@ executable("cocoyaxi_http_serv") {
   ]
 }
 
+executable("co_hello") {
+  sources = [ "src/co_hello.cpp" ]
+  deps = [
+    "//gn-deps/cocoyaxi:cocoyaxi",
+  ]
+}
+
 executable("openssl_asn1_test") {
   sources = [
     "gn-deps/openssl/fuzz/asn1.c",
